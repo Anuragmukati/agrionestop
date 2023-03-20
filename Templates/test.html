@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops Prediction</title>
+    <script src="https://cdn.tailwindcss.com"> </script>
+</head>
+<body class=class="bg-fixed ..." style="background-image: url(https://media.nationalgeographic.org/assets/photos/297/301/dfaa3f19-e791-4c1b-916c-33db80936dac.jpg)">
+        <h1 class=" flex justify-center text-4xl font-bold leading-normal mt-0 mb-2 text-white">Crop Prediction</h1>
+    {% if result %}
+    <h1 class=" flex justify-center text-4xl font-bold leading-normal mt-0 mb-2 text-white" > {{ result }}</h1>
+    {% endif %}
+
+    <br>
+    <br>
+    <div class="flex justify-center">
+        <form class="bg-white  shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" action ="/predict">
+          <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="Temperature">
+              तापमान
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name = "temp" id="temp"   placeholder="Temperature">
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="Humidity">
+              नमी
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name = "hum" id="temp"   placeholder="Humidity">
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="PH">
+              पीएच
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name = "ph" id="ph"   placeholder="ph">
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="Water Availability">
+              पानी की उपलब्धता
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name = "wa" id="wa"   placeholder="Water Availability">
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="season">
+              मौसम: - बारिश के लिए 0, सर्दियों के लिए 1, वसंत के लिए 2 और गर्मियों के लिए 3
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name ="season" id="season"   placeholder="season">
+          </div>
+
+          <div class="flex items-center justify-between">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="submit" value="अनुमान" id="predict">
+          </div>
+        </form>
+      </div>
+</body>
+</html>
